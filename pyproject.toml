@@ -3,7 +3,7 @@ name = "mywarehouse"
 authors = [
     { name = "kamau", email = "rkamau573@gmail.com"}
 ]
-description = "A warehouse management system"
+description = "A warehouse Management system"
 requires-python = ">=3.14"
 readme = "README.md"
 dynamic = ["version"]

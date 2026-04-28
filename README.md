@@ -1,6 +1,6 @@
 ### Mywarehouse
 
-A warehouse management system
+A warehouse Management system
 
 ### Installation
 

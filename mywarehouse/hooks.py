@@ -1,7 +1,7 @@
 app_name = "mywarehouse"
 app_title = "Mywarehouse"
 app_publisher = "kamau"
-app_description = "A warehouse management system"
+app_description = "A warehouse Management system"
 app_email = "rkamau573@gmail.com"
 app_license = "mit"
 
