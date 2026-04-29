@@ -1,40 +1,70 @@
-### Mywarehouse
+# Warehouse Management System for X Electronics
 
-A warehouse Management system
+A custom warehouse management system built with **Frappe Framework** for the **X Electronics** exercise.
 
-### Installation
+This project handles stock movement, inventory valuation, warehouse-level stock visibility, and reporting using a ledger-based inventory model.
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
+---
 
-```bash
-cd $PATH_TO_YOUR_BENCH
-bench get-app $URL_OF_THIS_REPO --branch version-16
-bench install-app mywarehouse
-```
+## Features
 
-### Contributing
+### Core DocTypes
+- **Item**
+- **Warehouse**
+- **Stock Entry**
+- **Stock Entry Item**
+- **Stock Ledger Entry**
 
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
+### Stock Operations
+- **Receipt** → adds stock into a target warehouse
+- **Consume** → removes stock from a source warehouse
+- **Transfer** → moves stock from a source warehouse to a target warehouse
+- **Opening Stock** → loads initial stock into a target warehouse
 
-```bash
-cd apps/mywarehouse
-pre-commit install
-```
+### Inventory Logic
+- Ledger-based inventory model
+- Dynamic stock movement tracking
+- Moving average valuation
+- Negative stock prevention
+- Warehouse-level stock balances
 
-Pre-commit is configured to use the following tools for checking and formatting your code:
+### Reports
+- **Stock Ledger Report**
+  - Shows all stock movements line by line
+- **Stock Balance Report**
+  - Shows summarized stock balance per item and warehouse
 
-- ruff
-- eslint
-- prettier
-- pyupgrade
-### CI
+### Validation & Controls
+- Quantity validation
+- Warehouse validation by transaction type
+- Transfer source/target mismatch prevention
+- Server-side business logic in Python
 
-This app can use GitHub Actions for CI. The following workflows are configured:
+### Tests
+The project includes tests for:
+- Item creation
+- Warehouse creation
+- Receipt flow
+- Consume flow
+- Negative stock blocking
+- Moving average valuation
+- Stock Ledger report
+- Stock Balance report
 
-- CI: Installs this app and runs unit tests on every push to `develop` branch.
-- Linters: Runs [Frappe Semgrep Rules](https://github.com/frappe/semgrep-rules) and [pip-audit](https://pypi.org/project/pip-audit/) on every pull request.
+---
 
+## Project Structure
 
-### License
-
-mit
+```text
+mywarehouse/
+├── mywarehouse/
+│   ├── doctype/
+│   │   ├── item/
+│   │   ├── warehouse/
+│   │   ├── stock_entry/
+│   │   ├── stock_entry_item/
+│   │   └── stock_ledger_entry/
+│   └── report/
+│       ├── stock_ledger/
+│       └── stock_balance/
+└── README.md
