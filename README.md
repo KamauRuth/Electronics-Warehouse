@@ -1,3 +1,8 @@
+You’re right — I did include those sections, but the way they were formatted with extra block markers made them look broken and easy to miss.
+
+Here is the **full clean README** again, with the **Setup Instructions** and **Screenshots** sections clearly included and properly formatted.
+
+````markdown
 # Warehouse Management System for X Electronics
 
 A custom warehouse management system built with **Frappe Framework** for the **X Electronics** exercise.
@@ -68,3 +73,184 @@ mywarehouse/
 │       ├── stock_ledger/
 │       └── stock_balance/
 └── README.md
+````
+
+---
+
+## How the System Works
+
+### 1. Stock Entry
+
+A user creates a **Stock Entry** and submits it.
+
+Depending on the purpose:
+
+#### Receipt
+
+Creates a **positive Stock Ledger Entry** in the **target warehouse**.
+
+#### Consume
+
+Creates a **negative Stock Ledger Entry** in the **source warehouse**.
+
+#### Transfer
+
+Creates:
+
+* a **negative Stock Ledger Entry** in the **source warehouse**
+* a **positive Stock Ledger Entry** in the **target warehouse**
+
+#### Opening
+
+Creates a **positive Stock Ledger Entry** in the **target warehouse**.
+
+---
+
+### 2. Stock Ledger Entry
+
+This is the **source of truth** for inventory movement.
+
+Each ledger row stores:
+
+* item
+* warehouse
+* posting date
+* posting time
+* actual quantity moved
+* valuation rate
+* stock value
+* voucher type
+* voucher number
+
+---
+
+### 3. Valuation
+
+The system uses **moving average valuation**.
+
+For incoming stock:
+
+* average cost is recalculated based on current stock value and incoming stock value
+
+For outgoing stock:
+
+* the current average cost is used
+
+---
+
+## Setup Instructions
+
+### 1. Go to your bench
+
+```bash
+cd frappe-v16-bench
+```
+
+### 2. Install the custom app
+
+```bash
+bench --site warehouse install-app mywarehouse
+```
+
+### 3. Run migrations
+
+```bash
+bench --site warehouse migrate
+```
+
+### 4. Start bench
+
+```bash
+bench start
+```
+
+---
+
+## Running Tests
+
+Run all tests for this module:
+
+```bash
+bench --site warehouse run-tests --app mywarehouse --module mywarehouse.mywarehouse.doctype.stock_entry.test_stock_entry --verbose
+```
+
+---
+
+## Demo Data
+
+For demonstration, the system was tested using realistic warehouse and item data such as:
+
+### Warehouses
+
+* Main Warehouse
+* Thika Warehouse
+* Nairobi Warehouse
+
+### Items
+
+* Dell Latitude 5420 Laptop
+* Samsung 24 Inch Monitor
+* Logitech Wireless Mouse
+* HP Laptop Charger
+* Kingston 512GB SSD
+
+---
+
+## Screenshots
+
+Below are some screenshots of the system:
+
+### Item List
+
+![Item List](screenshots/items.png)
+
+### Warehouse List
+
+![Warehouse List](screenshots/warehouses.png)
+
+### Stock Entry Form
+
+![Stock Entry Form](screenshots/stock-entry.png)
+
+### Stock Ledger Report
+
+![Stock Ledger Report](screenshots/stock-ledger.png)
+
+### Stock Balance Report
+
+![Stock Balance Report](screenshots/stock-balance.png)
+
+### Example Screenshot Folder Structure
+
+```text
+screenshots/
+├── items.png
+├── warehouses.png
+├── stock-entry.png
+├── stock-ledger.png
+└── stock-balance.png
+```
+
+---
+
+## Notes
+
+This project was built as part of the **Navari Limited Software Engineer Exercise**.
+
+The focus was on:
+
+* clean business logic
+* ERP-style stock movement handling
+* accurate reporting
+* test coverage
+* clarity of implementation
+
+---
+
+## Author
+
+**Kamau**
+
+````
+
+
