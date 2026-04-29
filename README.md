@@ -26,6 +26,9 @@ This system provides complete inventory control for multi-warehouse operations w
 
 ### Reports
 - **Stock Ledger Report** — Complete transaction history line by line
+
+![alt text](image.png)
+
 - **Stock Balance Report** — Current stock levels summarized by item and warehouse
 
 ### Data Integrity
