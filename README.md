@@ -31,6 +31,8 @@ This system provides complete inventory control for multi-warehouse operations w
 
 - **Stock Balance Report** — Current stock levels summarized by item and warehouse
 
+![alt text](image-1.png)
+
 ### Data Integrity
 - Comprehensive validation rules
 - Warehouse-specific transaction controls
